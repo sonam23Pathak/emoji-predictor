@@ -1,25 +1,33 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import "./style.css";
 
-function App() {
+var headingText = "Hiii Sonam";
+var color = "red";
+var likeCounter = 0;
+
+export default function App() {
+  const [likeCounter, setLikeConter] = useState(0);
+
+  function likeClickHandler() {
+    var newLikeCounter = likeCounter + 1;
+    setLikeConter(newLikeCounter);
+  }
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1 style={{ backgroundColor: color }}>{headingText}</h1>
+      <button onClick={likeClickHandler}>like me!!</button> {likeCounter}
     </div>
   );
 }
 
-export default App;
+/**
+ * 
+ points to remember
+
+ onClick takes  a function
+ class = className
+ useState is a fun
+ {anything return in this is JS}
+
+
+ */
